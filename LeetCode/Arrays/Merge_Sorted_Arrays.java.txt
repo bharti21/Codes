@@ -1,0 +1,45 @@
+// int [] res = new int[m+n];
+//         int k=0,i=0,j=0;
+//         for( i=0,j=0;i<m && j<n;){
+//             if(a[i]<=b[j]){
+//                 res[k++]=a[i];
+//                 i++;
+                
+//             }
+//             else if(b[j]<a[i]){
+//                 res[k++]=b[j];
+//                 j++;
+                
+//             }
+            
+//         }
+//         while(i<m){
+//             res[k++]=a[i];
+//             i++;
+//         }
+//          while(j<n){
+//             res[k++]=b[j];
+//             j++;
+//         }
+//         for(int x=0;x<res.length;x++){
+//             a[x]= res[x];
+//         }  
+//     }  t=o(n)/s=o(m+n)
+class Solution {
+    public void merge(int[] a, int m, int[] b, int n) {
+        if(a.length==0 || b.length==0)
+            return;
+        int j=n-1,end=m+n-1;
+        int i=m-1;
+        for( ;i>=0 && j>=0;){
+           
+            a[end] = a[i]>b[j]?a[i--]:b[j--];
+            end--;
+        }
+    
+        while(j>=0 ){
+            a[end--]=b[j--];
+            
+        }
+    }   
+}
